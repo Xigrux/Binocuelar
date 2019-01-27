@@ -8,8 +8,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
-
-    <legend>ConUHacks team maker</legend>
+    <header>
+        <div class="logo"></div>
+        <legend>ConUHacks team maker</legend>
+    </header>
 
     <form action="/submitMember" method="POST">
         <fieldset class="padding-large">
@@ -68,7 +70,7 @@
                 </select>
             </div>
 
-            <button class='btn disabled' id="Confirm" type='submit'>Find me a team!</button>
+            <button class='disabled' id="Confirm" type='submit'>Find me a team!</button>
             <%for (i = 0; i < errors.length; i++) { %>
                 <h2> Error <%=i %>: <%=errors[i]%></h2>
             <%} %>
