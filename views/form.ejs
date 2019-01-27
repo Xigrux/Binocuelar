@@ -4,6 +4,8 @@
     <title>Team Maker</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
 
@@ -16,10 +18,10 @@
             <input type="text" id="name" name="name" placeholder="Foobie Barson" required>
 
             <label for="username">Username</label> 
-            <input  type="text" id="username" name="username" placeholder="Foobar" required>
+            <input type="text" id="username" name="username" placeholder="Foobar" required>
 
             <label for="email">Email</label> 
-            <input  type="text" id="email" name="email" placeholder="foobie.barson@foobar.com" required>
+            <input type="text" id="email" name="email" placeholder="foobie.barson@foobar.com" required>
 
             <label for="size_1">Project type</label>
             <div class="custom-select">
@@ -66,7 +68,7 @@
                 </select>
             </div>
 
-            <button class='btn' id="Confirm" type='submit'>Find me a team!</button>
+            <button class='btn disabled' id="Confirm" type='submit'>Find me a team!</button>
             <%for (i = 0; i < errors.length; i++) { %>
                 <h2> Error <%=i %>: <%=errors[i]%></h2>
             <%} %>
@@ -100,6 +102,7 @@
             h = this.parentNode.previousSibling;
             for (i = 0; i < s.length; i++) {
             if (s.options[i].innerHTML == this.innerHTML) {
+                let $value = s.options[i].value;
                 s.selectedIndex = i;
                 h.innerHTML = this.innerHTML;
                 y = this.parentNode.getElementsByClassName("same-as-selected");
@@ -107,6 +110,7 @@
                 y[k].removeAttribute("class");
                 }
                 this.setAttribute("class", "same-as-selected");
+                this.parentElement.setAttribute("value", $value);
                 break;
             }
             }
@@ -122,7 +126,6 @@
         closeAllSelect(this);
         this.nextSibling.classList.toggle("select-hide");
         this.classList.toggle("select-arrow-active");
-        this.classList.add('select-clicked');
     });
     }
 
@@ -149,6 +152,39 @@
     /* If the user clicks anywhere outside the select box,
     then close all select boxes: */
     document.addEventListener("click", closeAllSelect);
+</script>
+<script>
+    let $input = $('input');
+    let $select = $('.select-items');
+    let $inputValue = $input.value;
+    let $selectValue = true;
+
+    $input.change( function() {
+        $input.each( function() {
+            if (!$inputValue || $selectValue) {
+                $('button').addClass('disabled');
+            } else {
+                $('button').removeClass('disabled');
+            }
+        })
+    });
+    
+    $select.click( function() {
+        $select.each( function() {
+            $selectValue = $(this);
+            // console.log($(this).context.attributes.value.value);
+            if ($selectValue.attr('value')) {
+                $('button').removeClass('disabled')
+                console.log($selectValue);
+                $selectValue.siblings('.select-selected').addClass('select-clicked');
+            } else {
+                $('button').addClass('disabled');
+            }
+        })
+        
+    });
+
+
 </script>
 
 </body>
