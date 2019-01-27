@@ -21,10 +21,10 @@ router.post('/join', function(req, res){
 });
 
 
-$('#sendEmail').click(function(){
-  console.log('button clicked');
-  sgMail.send(msg);
-});
+// $('#sendEmail').click(function(){
+//   console.log('button clicked');
+//   sgMail.send(msg);
+// });
 
 
 const msg = {
