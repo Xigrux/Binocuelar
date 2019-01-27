@@ -8,9 +8,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
+
     <header>
-        <div class="logo"></div>
-        <legend>ConUHacks team maker</legend>
+        <div class="logo" alt="Binocuelar"></div>
+          <legend>ConUHacks team maker</legend>
     </header>
 
     <form action="/submitMember" method="POST">
@@ -70,10 +71,7 @@
                 </select>
             </div>
 
-            <button class='disabled' id="Confirm" type='submit'>Find me a team!</button>
-            <%for (i = 0; i < errors.length; i++) { %>
-                <h2> Error <%=i %>: <%=errors[i]%></h2>
-            <%} %>
+            <button class='disabled'> Find me a team!</button>
 
         </fieldset>
     </form>
