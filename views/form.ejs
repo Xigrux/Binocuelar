@@ -13,17 +13,18 @@
         <fieldset class="padding-large">
             
             <label for="name">Name</label> 
-            <input type="text" id="name" name="name" placeholder="Foobie Barson">
+            <input type="text" id="name" name="name" placeholder="Foobie Barson" required>
 
             <label for="username">Username</label> 
-            <input type="text" id="username" name="username" placeholder="Foobar">
+            <input  type="text" id="username" name="username" placeholder="Foobar" required>
 
             <label for="email">Email</label> 
-            <input type="text" id="email" name="email" placeholder="foobie.barson@foobar.com">
+            <input  type="text" id="email" name="email" placeholder="foobie.barson@foobar.com" required>
 
             <label for="size_1">Project type</label>
             <div class="custom-select">
-                <select id="card" name="project">
+                <select id="card" name="project" required>
+                    <option value="">Select a project type</option>
                     <option value="visa">Web app</option>
                     <option value="mc">Mobile app</option>
                     <option value="amex">IoT</option>
@@ -37,7 +38,8 @@
 
             <label for="size_3">Team size</label>
             <div class="custom-select">
-                <select id="card" name="teamsize">
+                <select id="card" name="teamsize" required>
+                    <option value="">Select a Team Size</option>
                     <option value="visa">Small Team</option>
                     <option value="mc">Full Team</option>
                     <!-- <option value="mc">I'll take whatever!</option> MVP 3-->
@@ -46,7 +48,8 @@
 
             <div class="custom-select">
                 <label for="size_2">Technologies</label>
-                <select id="card" name="technology">
+                <select id="card" name="technology" required>
+                    <option value="">Select a Technology</option>
                     <option value="visa">HTML/CSS/Javascript/JQuery</option>
                     <option value="mc">Java</option>
                     <option value="amex">Python</option>
@@ -63,7 +66,7 @@
                 </select>
             </div>
 
-            <button class=“btn” type=“submit”>Send</button>
+            <button class='btn' id="Confirm" type='submit'>Find me a team!</button>
             <%for (i = 0; i < errors.length; i++) { %>
                 <h2> Error <%=i %>: <%=errors[i]%></h2>
             <%} %>
@@ -147,6 +150,7 @@
     then close all select boxes: */
     document.addEventListener("click", closeAllSelect);
 </script>
+
 </body>
 
 </html>

@@ -117,6 +117,11 @@ button {
   transition: 100ms ease all;
 }
 
+button {
+  font-size: .7em;
+  color: var(--pink);
+}
+
 input::placeholder,
 select,
 .select-selected,
@@ -133,6 +138,11 @@ button:hover {
 button:hover {
   background-color: var(--yellow);
   border-color: var(--yellow);
+  color: white;
+}
+
+.disabled:hover {
+  background-color: white;
 }
 
 .select-selected {
