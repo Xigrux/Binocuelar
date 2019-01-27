@@ -134,7 +134,8 @@ select,
 input:hover,
 .select-selected:hover,
 button:hover {
-  box-shadow: 0 .2em .5em #33333333
+  box-shadow: 0 .2em .5em #33333333;
+  cursor: pointer;
 }
 
 button:hover {
@@ -148,7 +149,7 @@ button:hover {
   color: var(--pink);
   border-color: #bb4949;
   box-shadow: 0 .2em 1em #33333311;
-  cursor: not-allowed;
+  cursor: no-drop;
 }
 
 .select-selected {
@@ -219,6 +220,9 @@ input,
   border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
   overflow: hidden;
+  border-bottom: var(--yellow) 2px solid;
+  border-left: var(--yellow) 2px solid;
+  border-right: var(--yellow) 2px solid;
 }
 
 /* Hide the items when the select box is closed: */
